@@ -5,6 +5,7 @@
   imports = [
     ../../../modules/default.nix
     ../../../modules/nixos-vscode-ssh-fix.nix
+    ${pkgs.fetchTarball "https://github.com/msteen/nixos-vscode-server/tarball/master"}/modules/vscode-server/home.nix"
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -75,5 +76,6 @@
   #
 
   # Let Home Manager install and manage itself.
+  services.vscode-server.enable = true;
   programs.home-manager.enable = true;
 }
