@@ -11,12 +11,13 @@
 
   outputs = { nixpkgs, home-manager, ... }:
   let
-    system-intel-64 = "x86_64-linux";
+    system = "x86_64-linux";
   in
   {
     nixosConfigurations = {
       nixos-intel-research = nixpkgs.lib.nixosSystem {
-        inherit system-intel-64;
+         system = "x86_64-linux";
+         inherit inputs;
          modules = [
           ./nixos/configuration.nix
           ./hosts/term/intel-research.nix
