@@ -1,5 +1,5 @@
 {
-  description = "Cory's Nix Configuration";
+  description = "NixOS Configuration for QEMU Research";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
@@ -19,14 +19,14 @@
         inherit x86_64;
          modules = [
           ./nixos/configuration.nix
-          ./hosts/desktop/intel-research.nix
-          ./modules/global/desktop-plasma.nix
+          ./hosts/term/intel-research.nix
+          ./modules/global/default.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = true;
-              users.user = ./hosts/desktop/home-manager/research.nix;
+              users.user = ./hosts/term/home-manager/research.nix;
             };
           }
         ];
