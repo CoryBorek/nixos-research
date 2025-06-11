@@ -17,7 +17,6 @@
     nixosConfigurations = {
       nixos-intel-research = nixpkgs.lib.nixosSystem {
          system = "x86_64-linux";
-         inherit inputs;
          modules = [
           ./nixos/configuration.nix
           ./hosts/term/intel-research.nix
